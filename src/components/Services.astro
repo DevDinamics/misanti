@@ -9,96 +9,158 @@ import cabinaCompleta from '../assets/images/Cabina_V_.JPG';
 import cabinaV1 from '../assets/images/Cabina_V_1.JPG';
 import cabina2 from '../assets/images/cabina__2.JPG';
 
-// Videos (2 verticales + 1 horizontal del dron):
+// Videos reales de eventos
 import videoPov from '../assets/images/QUE SE LE NTOJA A LA REYNA_.mp4';
 import videoDron from '../assets/images/Dron.mp4';
 import videoVertical2 from '../assets/images/POV XV SONIDO .mp4';
 
 // ==========================================
-// 2. PAQUETES EDITORIALES (Personalizables)
+// 2. LAS 3 EXPERIENCIAS ESTRELLA MISSANTI
 // ==========================================
-const packages = [
+const coreServices = [
   {
-    id: "paquete-digital",
-    tier: "COLECCIÓN 01",
-    title: "Digital Vogue",
-    subtitle: "Para eventos dinámicos que buscan fotos digitales en ultra alta definición listas para compartir en redes.",
-    duration: "2 Horas de Experiencia",
-    highlight: false,
-    badge: null,
+    id: "cabina-vogue",
+    tier: "EXPERIENCIA INSIGNIA",
+    title: "Cabina Vogue",
+    subtitle: "La portada de revista monumental interactiva donde los invitados se convierten en protagonistas de pasarela.",
+    duration: "4 Horas de Servicio Continuo",
+    highlight: true,
+    badge: "MÁS SOLICITADO EN EXPO 15",
     features: [
-      "Estructura monumental Cabina Vogue (acabado blanco de pasarela)",
-      "Iluminación continua de estudio fotográfico CRI 95+ (suaviza piel en cámara)",
-      "Carátula oficial personalizada con nombres y fecha conmemorativa",
-      "Descarga digital instantánea en 4K vía código QR en vivo",
-      "Galería privada en la nube para descarga de invitados",
-      "Asistente técnico durante toda la sesión"
+      "Fotografías digitales ILIMITADAS en alta resolución durante todo el evento",
+      "Álbum digital instantáneo en la nube para compartir vía código QR en vivo",
+      "Diseño y tipografía de carátula 100% personalizada a juego con la temática y vestido",
+      "Back de tocador Hollywood con espejo e iluminación perimetral continua",
+      "Alfombra roja de gala y postes unifila dorados para delimitar el acceso VIP",
+      "Utilería editorial elegante seleccionada (props chic, gafas retro, accesorios)",
+      "Iluminación fotográfica profesional de estudio (alta fidelidad CRI 95+)",
+      "Asistente técnico dedicado durante todo el servicio + Montaje y desmontaje incluidos",
+      "Posibilidad de complementar con impresiones fotográficas profesionales al instante"
     ],
-    buttonText: "Cotizar Digital Vogue",
+    buttonText: "Cotizar Cabina Vogue"
+  },
+  {
+    id: "cabina-espejada",
+    tier: "INMERSIÓN & REFLEJOS",
+    title: "Cabina Espejada",
+    subtitle: "Estructura futurista de superficies reflejantes que genera efectos visuales infinitos y contenido viral de alto impacto.",
+    duration: "Contratación Individual o en Combo",
+    highlight: false,
+    badge: "TENDENCIA 2026",
+    features: [
+      "Estructura 100% espejada que produce reflejos y efectos de perspectiva únicos",
+      "Letrero de neón decorativo exclusivo de diseño",
+      "Esferas decorativas (orbs) para ambientación escénica y estética visual",
+      "Iluminación ambiental envolvente calibrada para video de TikTok y Reels",
+      "Espacio ideal para sesiones de foto y video de la quinceañera, novios e invitados",
+      "Montaje y desmontaje profesional adaptado a salón o jardín",
+      "Disponible en paquete combinado 'missanti.premium' junto a Cabina Vogue"
+    ],
+    buttonText: "Cotizar Cabina Espejada"
+  },
+  {
+    id: "missanti-store",
+    tier: "CONCEPTO BOUTIQUE",
+    title: "missanti.store",
+    subtitle: "Transformamos la tradicional entrega de recuerdos en una tienda de lujo dentro del salón, con ceremonia inaugural.",
+    duration: "Formatos: 3, 7 y 9 Módulos",
+    highlight: false,
+    badge: "CONCEPTO INNOVADOR",
+    features: [
+      "Ceremonia de inauguración con listón, moño y tijeras gigantes de gala",
+      "Módulo principal personalizado con foto de alta resolución de la festejada",
+      "Módulos de exhibición escalonados para regalos pequeños, medianos y grandes",
+      "Estructura circular de exhibición de tres niveles con iluminación propia",
+      "Iluminación LED integrada en las repisas + iluminación exterior profesional",
+      "Arco de entrada decorativo y letrero luminoso missanti.store",
+      "Alfombra roja y postes unifila dorados para mantener el orden",
+      "Personal de apoyo dedicado durante el servicio + Montaje y desmontaje"
+    ],
+    buttonText: "Cotizar missanti.store"
+  }
+];
+
+// ==========================================
+// 3. IMPRESIONES FOTOGRÁFICAS PROFESIONALES
+// ==========================================
+const printPackages = [
+  {
+    qty: "100 Impresiones",
+    price: "$3,500 MXN",
+    desc: "Ideal para recepciones íntimas y familiares de hasta 100 invitados.",
     popular: false
   },
   {
-    id: "paquete-signature",
-    tier: "COLECCIÓN 02",
-    title: "Signature Vogue",
-    subtitle: "La experiencia completa de pasarela. El montaje más fotografiado y cotizado de Expo 15.",
-    duration: "3 Horas de Experiencia Continua",
-    highlight: true,
-    badge: "MÁS ELEGIDO EN EXPO 15",
-    features: [
-      "Todo lo incluido en la Colección Digital",
-      "Impresiones térmicas profesionales ILIMITADAS en segundos",
-      "Tocador Hollywood con espejo e iluminación perimetral para retoque",
-      "Unifilas VIP con postes dorados y cordón de terciopelo rojo",
-      "Set de accesorios editoriales de alta costura (lentes retro, props chic)",
-      "2 personas de staff dedicadas (operador y director de poses)"
-    ],
-    buttonText: "Apartar Signature Vogue",
+    qty: "150 Impresiones",
+    price: "$5,250 MXN",
+    desc: "La cantidad más recomendada para eventos promedio de 150 a 200 personas.",
     popular: true
   },
   {
-    id: "paquete-couture",
-    tier: "COLECCIÓN 03",
-    title: "Haute Couture VIP",
-    subtitle: "El nivel máximo de gala para quinceañeras y bodas de alta sociedad con recuerdos físicos de colección.",
-    duration: "4 Horas de Experiencia Premium",
-    highlight: false,
-    badge: "EDICIÓN DE GALA",
-    features: [
-      "Todo lo incluido en la Colección Signature",
-      "Álbum de firmas encuadernado de lujo (fotos impresas + dedicatorias)",
-      "Diseño de doble plantilla fotográfica personalizada a juego con el vestido",
-      "Arreglo floral artesanal en cabina coordinado con la temática",
-      "USB conmemorativa de lujo con todo el archivo en calidad máster",
-      "Prioridad de montaje VIP con 3 horas de anticipación garantizadas"
-    ],
-    buttonText: "Cotizar Couture VIP",
+    qty: "200 Impresiones",
+    price: "$7,000 MXN",
+    desc: "Cobertura amplia para grandes fiestas de gala asegurando recuerdo a cada familia.",
     popular: false
   }
 ];
 
 // ==========================================
-// 3. GALERÍA MULTIMEDIA ASIMÉTRICA BENTO
+// 4. EXPERIENCIAS COMBINADAS POPULARES
+// ==========================================
+const comboPackages = [
+  {
+    title: "Vogue + Impresiones",
+    tag: "COMBO RECUERDO",
+    desc: "La experiencia completa de Cabina Vogue sumando el paquete de impresiones térmicas que elijas."
+  },
+  {
+    title: "missanti.premium",
+    tag: "DOBLE CABINA VIP",
+    desc: "Cabina Vogue monumental + Cabina Espejada inmersiva para un circuito de fotos sin filas."
+  },
+  {
+    title: "Vogue + missanti.store",
+    tag: "CONCEPTO TOTAL",
+    desc: "Sesión fotográfica editorial combinada con la boutique personalizada para la entrega de recuerdos."
+  },
+  {
+    title: "The All-Inclusive Experience",
+    tag: "MÁXIMA GALA",
+    desc: "Cabina Vogue + Impresiones profesionales + missanti.store con ceremonia de corte de listón."
+  }
+];
+
+// ==========================================
+// 5. OTROS SERVICIOS DECORATIVOS
+// ==========================================
+const extraServices = [
+  "Decoración floral de alta gama",
+  "Arreglos decorativos personalizados",
+  "Centros de mesa exclusivos",
+  "Arcos y estructuras arquitectónicas",
+  "Entelados y ambientación de salones",
+  "Montajes temáticos a medida"
+];
+
+// ==========================================
+// 6. GALERÍA MULTIMEDIA ASIMÉTRICA BENTO
 // ==========================================
 const galleryItems = [
-  // 1. Video vertical 1 (Ocupa 2 filas)
   {
     type: "video" as const,
     src: videoPov,
     title: "POV: Cabina Vogue en vivo",
     badge: "Reel Viral",
-    colSpan: "col-span-1 md:row-span-2"
+    colSpan: "col-span-1 lg:row-span-2"
   },
-  // 2. Foto montaje completo en jardín
   {
     type: "image" as const,
     src: cabinaCompleta,
     title: "Montaje Completo en Jardín",
     subtitle: "Cabina monumental, tocador Hollywood y unifilas doradas",
     badge: "Setup VIP",
-    colSpan: "col-span-1 md:col-span-2"
+    colSpan: "col-span-1 sm:col-span-2 lg:col-span-2"
   },
-  // 3. Foto detalle portada personalizada
   {
     type: "image" as const,
     src: cabinaV1,
@@ -107,7 +169,6 @@ const galleryItems = [
     badge: "Detalle Exclusivo",
     colSpan: "col-span-1"
   },
-  // 4. Foto estructura pasarela
   {
     type: "image" as const,
     src: cabina2,
@@ -116,16 +177,14 @@ const galleryItems = [
     badge: "Alta Costura",
     colSpan: "col-span-1"
   },
-  // 5. Video del Dron Horizontal (16:9 amplio)
   {
     type: "video" as const,
     src: videoDron,
     title: "Escenografía Aérea & Producción",
     subtitle: "Cobertura cinematográfica y ambiente de gala",
-    badge: "Toma Aérea con Dron",
-    colSpan: "col-span-1 md:col-span-2"
+    badge: "Toma con Dron",
+    colSpan: "col-span-1 sm:col-span-2 lg:col-span-2"
   },
-  // 6. Video vertical 2
   {
     type: "video" as const,
     src: videoVertical2,
@@ -134,92 +193,102 @@ const galleryItems = [
     colSpan: "col-span-1"
   }
 ];
+
+// ==========================================
+// 7. PROCESO DE RESERVACIÓN EN 6 PASOS
+// ==========================================
+const bookingSteps = [
+  { num: "01", title: "Selección de Servicio", desc: "Elige tu Cabina Vogue, Cabina Espejada, missanti.store o combo." },
+  { num: "02", title: "Confirmación de Fecha", desc: "Validamos de inmediato la agenda para tu salón, jardín o hacienda." },
+  { num: "03", title: "Cotización Expo 15", desc: "Recibes tu presupuesto formal con tarifa preferencial de evento." },
+  { num: "04", title: "Anticipo del 20%", desc: "Apartas y bloqueas tu fecha con solo el veinte por ciento." },
+  { num: "05", title: "Contrato Digital", desc: "Firma electrónica de contrato con validez oficial y garantía de servicio." },
+  { num: "06", title: "Confirmación Total", desc: "Coordinación técnica de logística y horarios de montaje con tu salón." }
+];
 ---
 
-<section id="servicios" class="my-20 sm:my-28 max-w-6xl mx-auto px-4 sm:px-6 scroll-mt-24">
+<section id="servicios" class="my-20 sm:my-28 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
   
-  <!-- Encabezado de Sección Estilo Apple Keynote -->
+  <!-- Encabezado de Sección Estilo Apple / Alta Costura -->
   <div class="text-center space-y-3.5 max-w-2xl mx-auto mb-16 sm:mb-20">
-    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/[0.03] border border-black/[0.06] backdrop-blur-md">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/[0.03] border border-black/[0.06] backdrop-blur-md">
       <span class="w-1.5 h-1.5 rounded-full bg-[#b8860b] animate-pulse"></span>
       <span class="text-[10px] uppercase tracking-[0.25em] text-[#86868b] font-medium">
-        Colecciones Exclusivas • Expo 15
+        Catálogo Oficial • Expo 15 México
       </span>
     </div>
 
     <h2 class="font-['Playfair_Display'] text-3xl sm:text-5xl md:text-[3.25rem] font-normal text-[#1d1d1f] tracking-tight leading-[1.12]">
-      La experiencia ideal para <br />
+      Experiencias únicas para <br />
       <span class="italic font-normal bg-gradient-to-r from-[#b8860b] via-[#cf9b38] to-[#8a6510] bg-clip-text text-transparent">
-        la noche de tus quince
+        celebraciones extraordinarias
       </span>
     </h2>
 
     <p class="text-xs sm:text-sm text-[#86868b] font-light leading-relaxed max-w-xl mx-auto">
-      Estructura física monumental, iluminación continua de estudio y fotografías impresas al instante. Elige el paquete perfecto para tu recepción.
+      Diseñadas para XV años, bodas, cumpleaños y eventos de alta gama en CDMX, Estado de México y toda la República.
     </p>
   </div>
 
-  <!-- 3 TARJETAS EDITORIALES DE LUJO (FULL RESPONSIVE) -->
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6 items-stretch pt-4">
-    {packages.map((pkg) => (
+  <!-- 1. LOS 3 PILARES ESTRELLA (Cabina Vogue, Cabina Espejada, missanti.store) -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6 items-stretch pt-2">
+    {coreServices.map((item) => (
       <div 
         class={`group relative rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between transition-all duration-500 ${
-          pkg.highlight 
-            ? "bg-gradient-to-b from-white via-[#fffdf9] to-[#faf6ed] border-2 border-[#b8860b]/45 shadow-[0_25px_60px_-15px_rgba(184,134,11,0.15),0_2px_4px_rgba(0,0,0,0.02)] ring-1 ring-[#b8860b]/20 lg:-translate-y-3 z-10" 
-            : "bg-white/85 backdrop-blur-xl border border-black/[0.08] shadow-[0_15px_40px_-15px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.02)] hover:shadow-[0_25px_50px_-15px_rgba(0,0,0,0.08)] hover:border-black/15"
+          item.highlight 
+            ? "bg-gradient-to-b from-white via-[#fffdf9] to-[#faf6ed] border-2 border-[#b8860b]/45 shadow-[0_25px_60px_-15px_rgba(184,134,11,0.15)] ring-1 ring-[#b8860b]/20 lg:-translate-y-3 z-10" 
+            : "bg-white/85 backdrop-blur-xl border border-black/[0.08] shadow-[0_15px_40px_-15px_rgba(0,0,0,0.04)] hover:shadow-xl hover:border-black/15"
         }`}>
         
-        {/* Badge Flotante Superior (Solo en Signature / Más Elegido) */}
-        {pkg.badge && (
+        {/* Badge Flotante Superior */}
+        {item.badge && (
           <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20">
             <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#1d1d1f] text-[#dfba73] text-[9px] uppercase tracking-[0.2em] font-medium shadow-md border border-[#dfba73]/30 whitespace-nowrap">
               <span class="w-1.5 h-1.5 rounded-full bg-[#dfba73] animate-ping"></span>
-              {pkg.badge}
+              {item.badge}
             </span>
           </div>
         )}
 
-        {/* Resplandor decorativo de fondo en el paquete destacado */}
-        {pkg.highlight && (
+        {/* Resplandor decorativo de fondo */}
+        {item.highlight && (
           <div class="absolute -top-20 -right-20 w-52 h-52 bg-gradient-to-b from-[#b8860b]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
         )}
 
         <div class="space-y-6 relative z-10">
           
-          <!-- Bloque Superior: Tier + Título + Duración + Descripción -->
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <span class="text-[9.5px] uppercase tracking-[0.3em] font-semibold text-[#86868b]">
-                {pkg.tier}
+                {item.tier}
               </span>
-              <span class={`w-1.5 h-1.5 rounded-full ${pkg.highlight ? 'bg-[#b8860b]' : 'bg-black/15'}`}></span>
+              <span class={`w-1.5 h-1.5 rounded-full ${item.highlight ? 'bg-[#b8860b]' : 'bg-black/15'}`}></span>
             </div>
 
             <h3 class="font-['Playfair_Display'] text-2xl sm:text-[1.75rem] font-normal text-[#1d1d1f] tracking-tight leading-tight">
-              {pkg.title}
+              {item.title}
             </h3>
 
-            <!-- Duración en Cápsula Satinada -->
+            <!-- Duración / Modalidad en cápsula -->
             <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/[0.03] border border-black/[0.05] text-[#1d1d1f] text-[11px] font-medium tracking-wide">
               <span class="w-1.5 h-1.5 rounded-full bg-[#b8860b]"></span>
-              <span>{pkg.duration}</span>
+              <span>{item.duration}</span>
             </div>
 
             <p class="text-xs text-[#6e6e73] font-light leading-relaxed pt-1">
-              {pkg.subtitle}
+              {item.subtitle}
             </p>
           </div>
 
-          <!-- Separador fino -->
           <div class="h-px w-full bg-black/[0.06]"></div>
 
-          <!-- Lista de Características / Specs -->
+          <!-- Lista de características oficiales -->
           <div class="space-y-3.5">
             <p class="text-[9.5px] uppercase tracking-[0.22em] text-[#1d1d1f] font-semibold">
-              Qué incluye la experiencia:
+              ¿Qué incluye el servicio?
             </p>
             <ul class="text-xs text-[#424245] space-y-2.5 font-light">
-              {pkg.features.map((feat) => (
+              {item.features.map((feat) => (
                 <li class="flex items-start gap-2.5 leading-snug">
                   <span class="w-4 h-4 rounded-full bg-[#b8860b]/10 text-[#b8860b] flex items-center justify-center shrink-0 mt-0.5">
                     <svg class="w-2.5 h-2.5 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -234,16 +303,16 @@ const galleryItems = [
 
         </div>
 
-        <!-- Botón Inferior de Llamado a la Acción -->
+        <!-- Botón Inferior -->
         <div class="pt-8 relative z-10 mt-6 border-t border-black/[0.05]">
           <a 
             href="#apartar" 
             class={`w-full py-3.5 px-5 rounded-full text-center text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-300 flex items-center justify-center gap-2 active:scale-95 group ${
-              pkg.highlight 
+              item.highlight 
                 ? "bg-[#1d1d1f] text-white hover:bg-[#323236] shadow-md shadow-black/10" 
                 : "bg-white hover:bg-[#fbfbfd] text-[#1d1d1f] border border-black/[0.1] hover:border-black/25 shadow-sm"
             }`}>
-            <span>{pkg.buttonText}</span>
+            <span>{item.buttonText}</span>
             <span class="transform group-hover:translate-x-1 transition-transform">&rarr;</span>
           </a>
         </div>
@@ -252,9 +321,94 @@ const galleryItems = [
     ))}
   </div>
 
-  <!-- SECCIÓN ÁLBUM / EXPERIENCIAS EN VIVO (Bento Grid) -->
-  <div class="mt-28 space-y-10">
+  <!-- 2. SERVICIO COMPLEMENTARIO: IMPRESIONES FOTOGRÁFICAS PROFESIONALES -->
+  <div class="mt-20 p-6 sm:p-10 rounded-[2rem] bg-white border border-black/[0.08] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.05)] relative overflow-hidden">
+    <div class="max-w-2xl mb-8 space-y-2">
+      <span class="text-[9.5px] uppercase tracking-[0.3em] font-semibold text-[#b8860b]">
+        RECUERDOS FÍSICOS DE COLECCIÓN
+      </span>
+      <h3 class="font-['Playfair_Display'] text-2xl sm:text-3xl font-normal text-[#1d1d1f]">
+        Impresiones Fotográficas Profesionales
+      </h3>
+      <p class="text-xs sm:text-sm text-[#6e6e73] font-light leading-relaxed">
+        El complemento ideal para tu Cabina Vogue. Fotografías impresas en papel térmico profesional de <strong>4 × 6 pulgadas (10 × 15 cm)</strong> con diseño personalizado a juego con la temática de tu evento y entrega inmediata durante la fiesta.
+      </p>
+    </div>
+
+    <!-- Grid de los 3 paquetes con precios -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+      {printPackages.map((pkg) => (
+        <div class={`p-6 rounded-2xl border transition-all flex flex-col justify-between ${
+          pkg.popular 
+            ? 'border-[#b8860b]/40 bg-[#fffdf9] shadow-sm ring-1 ring-[#b8860b]/20 sm:-translate-y-1' 
+            : 'border-black/[0.06] bg-[#fbfbfd]'
+        }`}>
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs uppercase tracking-wider font-semibold text-[#1d1d1f]">{pkg.qty}</span>
+              {pkg.popular && (
+                <span class="text-[8px] uppercase tracking-wider font-bold bg-[#b8860b] text-white px-2 py-0.5 rounded-full">Más Popular</span>
+              )}
+            </div>
+            <div class="font-['Playfair_Display'] text-2xl sm:text-3xl font-bold text-[#1d1d1f] tracking-tight">{pkg.price}</div>
+            <p class="text-[11px] text-[#86868b] font-light mt-2 leading-relaxed">{pkg.desc}</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-black/[0.05]">
+            <span class="text-[9.5px] uppercase tracking-wider text-[#b8860b] font-medium">Impresión Térmica 4x6</span>
+          </div>
+        </div>
+      ))}
+    </div>
     
+    <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-black/[0.05] text-[11px] text-[#86868b]">
+      <span>* Los paquetes de impresión son complementarios a la contratación de la Cabina Vogue.</span>
+      <a href="#apartar" class="inline-flex items-center gap-1.5 text-[#1d1d1f] font-semibold uppercase tracking-wider hover:text-[#b8860b] transition-colors">
+        <span>Añadir a mi cotización</span> &rarr;
+      </a>
+    </div>
+  </div>
+
+  <!-- 3. PAQUETES COMBINADOS (missanti.premium) -->
+  <div class="mt-20 space-y-8">
+    <div class="text-center space-y-2 max-w-xl mx-auto">
+      <span class="text-[9.5px] uppercase tracking-[0.3em] font-semibold text-[#86868b]">
+        EXPERIENCIAS MULTIPLICADAS
+      </span>
+      <h3 class="font-['Playfair_Display'] text-2xl sm:text-3xl font-normal text-[#1d1d1f]">
+        Paquetes & Experiencias Combinadas
+      </h3>
+      <p class="text-xs text-[#86868b] font-light">
+        Nuestros servicios pueden integrarse entre sí para una producción completa y exclusiva.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {comboPackages.map((combo) => (
+        <div class="p-6 rounded-2xl bg-white border border-black/[0.07] shadow-sm flex flex-col justify-between hover:border-[#b8860b]/40 transition-colors">
+          <div class="space-y-2">
+            <span class="text-[8.5px] uppercase tracking-[0.25em] font-semibold text-[#b8860b] block">
+              {combo.tag}
+            </span>
+            <h4 class="font-['Playfair_Display'] text-lg font-semibold text-[#1d1d1f] leading-snug">
+              {combo.title}
+            </h4>
+            <p class="text-xs text-[#6e6e73] font-light leading-relaxed">
+              {combo.desc}
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-black/[0.05]">
+            <a href="#apartar" class="text-[10px] uppercase tracking-wider font-semibold text-[#1d1d1f] hover:text-[#b8860b] transition-colors flex items-center justify-between">
+              <span>Personalizar combo</span>
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- 4. SECCIÓN ÁLBUM / EXPERIENCIAS EN VIVO (Bento Grid) -->
+  <div class="mt-28 space-y-10">
     <div class="text-center space-y-3 max-w-xl mx-auto px-4">
       <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/[0.03] border border-black/[0.06]">
         <span class="w-1.5 h-1.5 rounded-full bg-[#b8860b] animate-ping"></span>
@@ -270,17 +424,17 @@ const galleryItems = [
         </span>
       </h3>
       <p class="text-xs text-[#86868b] font-light leading-relaxed">
-        Sin montajes ficticios. Momentos capturados directamente en jardines, salones y haciendas con nuestros clientes.
+        Sin simulaciones por computadora. Momentos capturados directamente en jardines, salones y haciendas con nuestros clientes.
       </p>
     </div>
 
     <!-- Grid Asimétrico: 3 Videos Silenciados + 3 Fotos -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {galleryItems.map((item) => (
         <div class={`group relative rounded-[1.75rem] overflow-hidden bg-black/[0.02] border border-black/[0.08] shadow-[0_15px_40px_-15px_rgba(0,0,0,0.06)] hover:shadow-2xl transition-all duration-500 ${item.colSpan}`}>
           
           {item.type === "video" ? (
-            <div class="relative w-full h-full min-h-[320px] md:min-h-full bg-black overflow-hidden flex items-center justify-center">
+            <div class="relative w-full h-full min-h-[320px] sm:min-h-[360px] bg-black overflow-hidden flex items-center justify-center">
               <video 
                 src={item.src} 
                 autoplay 
@@ -317,7 +471,7 @@ const galleryItems = [
               </div>
             </div>
           ) : (
-            <div class="relative w-full h-full min-h-[240px] overflow-hidden bg-neutral-100 flex items-center justify-center">
+            <div class="relative w-full h-full min-h-[240px] sm:min-h-[260px] overflow-hidden bg-neutral-100 flex items-center justify-center">
               <Image 
                 src={item.src} 
                 alt={item.title}
@@ -358,24 +512,79 @@ const galleryItems = [
         <span>&rarr;</span>
       </a>
     </div>
-
   </div>
 
-  <!-- Sello de Garantía y Puntualidad en Montaje -->
-  <div class="mt-20 p-7 rounded-3xl bg-[#fbfbfd] border border-black/[0.06] flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left shadow-sm">
-    <div class="space-y-1">
-      <p class="text-xs font-semibold text-[#1d1d1f] tracking-wide">
-        Garantía de Montaje & Puntualidad Missanti
-      </p>
-      <p class="text-[11px] text-[#86868b] font-light max-w-xl">
-        Llegamos con 2 a 3 horas de anticipación a tu jardín o salón para calibrar la iluminación, alinear la tipografía y realizar pruebas de impresión antes de que llegue el primer invitado.
+  <!-- 5. OTROS SERVICIOS DE AMBIENTACIÓN -->
+  <div class="mt-24 p-8 sm:p-10 rounded-[2rem] bg-[#fbfbfd] border border-black/[0.06] text-center space-y-6">
+    <div class="max-w-xl mx-auto space-y-2">
+      <span class="text-[9.5px] uppercase tracking-[0.3em] font-semibold text-[#86868b]">
+        PROPUESTAS COMPLEMENTARIAS
+      </span>
+      <h3 class="font-['Playfair_Display'] text-2xl sm:text-3xl font-normal text-[#1d1d1f]">
+        Decoración & Ambientación Escénica
+      </h3>
+      <p class="text-xs text-[#86868b] font-light leading-relaxed">
+        Además de nuestras experiencias fotográficas, complementamos tu evento con diseño integral de espacios.
       </p>
     </div>
-    <a 
-      href="#apartar" 
-      class="shrink-0 px-6 py-2.5 rounded-full bg-[#1d1d1f] text-white text-[10px] uppercase tracking-widest font-medium hover:bg-[#323236] transition-all">
-      Consultar Disponibilidad
-    </a>
+
+    <div class="flex flex-wrap justify-center gap-2.5 max-w-3xl mx-auto">
+      {extraServices.map((service) => (
+        <span class="px-4 py-2 rounded-full bg-white border border-black/[0.07] text-[#1d1d1f] text-xs font-light shadow-sm">
+          {service}
+        </span>
+      ))}
+    </div>
+  </div>
+
+  <!-- 6. PROCESO DE RESERVACIÓN OFICIAL (6 PASOS & 20% DE ANTICIPO) -->
+  <div class="mt-28 space-y-10">
+    <div class="text-center space-y-2 max-w-xl mx-auto px-4">
+      <span class="text-[9.5px] uppercase tracking-[0.3em] font-semibold text-[#86868b]">
+        TRANSPARENCIA & CERTEZA
+      </span>
+      <h3 class="font-['Playfair_Display'] text-3xl font-normal text-[#1d1d1f]">
+        Proceso de Reservación
+      </h3>
+      <p class="text-xs text-[#86868b] font-light">
+        Asegura tu fecha formalmente y sin complicaciones antes o durante Expo 15.
+      </p>
+    </div>
+
+    <!-- Grid responsivo de 6 pasos -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4">
+      {bookingSteps.map((step) => (
+        <div class="p-5 rounded-2xl bg-white border border-black/[0.06] shadow-sm flex flex-col justify-between space-y-3">
+          <span class="font-['Playfair_Display'] text-2xl font-bold text-[#b8860b]">{step.num}</span>
+          <div>
+            <h4 class="text-xs font-semibold text-[#1d1d1f] mb-1">{step.title}</h4>
+            <p class="text-[10px] sm:text-[10.5px] text-[#86868b] font-light leading-snug">{step.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Garantía y Lema Oficial -->
+    <div class="p-7 sm:p-9 rounded-[2rem] bg-gradient-to-r from-white via-[#fffdf9] to-white border border-black/[0.08] flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left shadow-sm">
+      <div class="space-y-1.5">
+        <div class="flex items-center justify-center sm:justify-start gap-2">
+          <span class="text-[9.5px] uppercase tracking-[0.25em] text-[#b8860b] font-semibold">MISSANTI.EVENTS</span>
+          <span class="text-[10px] text-[#86868b]">•</span>
+          <span class="font-['Playfair_Display'] italic text-sm text-[#1d1d1f]">¿Y por qué no?</span>
+        </div>
+        <p class="text-xs sm:text-sm font-medium text-[#1d1d1f]">
+          Cobertura en Ciudad de México, Estado de México y toda la República.
+        </p>
+        <p class="text-[11px] text-[#86868b] font-light max-w-xl">
+          Aparta tu fecha con solo el <strong class="text-[#1d1d1f] font-medium">20% de anticipo</strong> y firma de contrato digital con validez oficial.
+        </p>
+      </div>
+      <a 
+        href="#apartar" 
+        class="shrink-0 px-7 py-3.5 rounded-full bg-[#1d1d1f] text-white text-[11px] uppercase tracking-widest font-medium hover:bg-[#323236] transition-all shadow-md active:scale-95">
+        Iniciar Reservación
+      </a>
+    </div>
   </div>
 
 </section>
