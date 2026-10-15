@@ -1,83 +1,107 @@
 ---
 // src/components/Footer.astro
 interface Props {
-  whatsappNumber: string;
+  whatsappNumber?: string;
 }
 
-const { whatsappNumber } = Astro.props;
+const { whatsappNumber = "5215500000000" } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="w-full border-t border-black/[0.06] bg-white/60 backdrop-blur-md mt-24 pt-16 pb-12 transition-all">
-  <div class="max-w-5xl mx-auto px-6">
+<footer class="w-full border-t border-black/[0.06] bg-white/70 backdrop-blur-xl mt-24 pt-16 pb-12 transition-all">
+  <div class="max-w-6xl mx-auto px-5 sm:px-6">
     
-    <!-- Bloque Superior: Marca y Propuesta -->
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-12 border-b border-black/[0.05]">
+    <!-- Bloque Superior: Marca, Lema y Enlaces de Redes -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-black/[0.06]">
       
-      <!-- Logotipo & Slogan -->
-      <div class="space-y-2">
-        <a href="/" class="group flex flex-col select-none">
-          <span class="font-['Playfair_Display'] text-2xl tracking-[0.22em] font-normal text-[#1d1d1f] uppercase group-hover:text-[#b8860b] transition-colors">
-            Missanti
+      <!-- Identidad y Propuesta -->
+      <div class="md:col-span-6 space-y-3">
+        <a href="/" class="inline-block group select-none">
+          <span class="font-['Playfair_Display'] text-2xl sm:text-3xl tracking-[0.2em] font-normal text-[#1d1d1f] uppercase group-hover:text-[#b8860b] transition-colors">
+            Missanti.Events
           </span>
-          <span class="text-[8px] tracking-[0.45em] text-[#86868b] uppercase -mt-0.5">
-            Atelier & Events • Haute Production
+          <span class="block text-[8.5px] font-mono tracking-[0.45em] text-[#86868b] uppercase mt-0.5">
+            Experiencias Únicas para Eventos
           </span>
         </a>
-        <p class="text-xs text-[#86868b] font-light max-w-sm leading-relaxed">
-          Diseñamos atmósferas escenográficas y experiencias memorables. Especialistas en Cabina Vogue, efecto nube para vals y audio envolvente en CDMX y alrededores.
+
+        <p class="font-['Playfair_Display'] italic text-sm text-[#b8860b] tracking-wider">
+          "¿Y por qué no?"
+        </p>
+
+        <p class="text-xs text-[#6e6e73] font-light max-w-md leading-relaxed">
+          Diseño escenográfico, fotografía profesional y montajes de pasarela que transforman cada celebración en un suceso extraordinario. Especialistas en XV años, bodas y eventos de gala.
         </p>
       </div>
 
-      <!-- Accesos Rápidos a Redes (Pills Minimalistas) -->
-      <div class="flex flex-wrap items-center gap-2.5">
-        <a 
-          href="https://www.tiktok.com/@missanti.events" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/[0.08] bg-[#fbfbfd] text-[#1d1d1f] hover:border-[#b8860b] hover:text-[#b8860b] text-[11px] font-medium tracking-wider transition-all duration-300 active:scale-95 shadow-sm">
-          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
-          </svg>
-          <span>TikTok (+900K)</span>
-        </a>
+      <!-- Directorio de Experiencias -->
+      <div class="md:col-span-3 space-y-2.5">
+        <span class="text-[9.5px] uppercase tracking-[0.25em] font-semibold text-[#1d1d1f] block">
+          Experiencias
+        </span>
+        <ul class="text-xs text-[#6e6e73] space-y-2 font-light">
+          <li><a href="#servicios" class="hover:text-[#b8860b] transition-colors">Cabina Vogue Monumental</a></li>
+          <li><a href="#servicios" class="hover:text-[#b8860b] transition-colors">Cabina Espejada Inmersiva</a></li>
+          <li><a href="#servicios" class="hover:text-[#b8860b] transition-colors">missanti.store (Boutique)</a></li>
+          <li><a href="#servicios" class="hover:text-[#b8860b] transition-colors">Impresiones 4×6 Profesionales</a></li>
+          <li><a href="#servicios" class="hover:text-[#b8860b] transition-colors">Decoración Floral & Ambientación</a></li>
+        </ul>
+      </div>
 
-        <a 
-          href="https://www.instagram.com/missanti.events" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/[0.08] bg-[#fbfbfd] text-[#1d1d1f] hover:border-[#b8860b] hover:text-[#b8860b] text-[11px] font-medium tracking-wider transition-all duration-300 active:scale-95 shadow-sm">
-          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.13-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-          </svg>
-          <span>Instagram</span>
-        </a>
+      <!-- Canales Oficiales y Concierge (Diseño geométrico limpio) -->
+      <div class="md:col-span-3 space-y-3">
+        <span class="text-[9.5px] uppercase tracking-[0.25em] font-semibold text-[#1d1d1f] block">
+          Contacto Directo
+        </span>
+        
+        <div class="flex flex-col gap-2">
+          <a 
+            href={`https://wa.me/${whatsappNumber}`} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="px-4 py-2.5 rounded-lg border border-black/[0.08] bg-[#fbfbfd] hover:bg-[#1d1d1f] text-[#1d1d1f] hover:text-white text-[11px] font-medium tracking-wider transition-all duration-300 flex items-center justify-between group shadow-sm">
+            <span>WhatsApp Concierge</span>
+            <span class="text-[#b8860b] group-hover:translate-x-0.5 transition-transform">&rarr;</span>
+          </a>
 
-        <a 
-          href={`https://wa.me/${whatsappNumber}`} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/[0.08] bg-[#fbfbfd] text-[#1d1d1f] hover:border-[#b8860b] hover:text-[#b8860b] text-[11px] font-medium tracking-wider transition-all duration-300 active:scale-95 shadow-sm">
-          <span>WhatsApp Concierge</span>
-        </a>
+          <a 
+            href="https://www.tiktok.com/@missanti.events" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="px-4 py-2.5 rounded-lg border border-black/[0.08] bg-[#fbfbfd] hover:border-[#b8860b] text-[#1d1d1f] hover:text-[#b8860b] text-[11px] font-medium tracking-wider transition-all duration-300 flex items-center justify-between shadow-sm">
+            <span>TikTok Oficial</span>
+            <span class="text-[9px] font-mono text-[#86868b]">+900K</span>
+          </a>
+
+          <a 
+            href="https://www.instagram.com/missanti.events" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="px-4 py-2.5 rounded-lg border border-black/[0.08] bg-[#fbfbfd] hover:border-[#b8860b] text-[#1d1d1f] hover:text-[#b8860b] text-[11px] font-medium tracking-wider transition-all duration-300 flex items-center justify-between shadow-sm">
+            <span>Instagram</span>
+            <span class="text-[9px] font-mono text-[#86868b]">@missanti.events</span>
+          </a>
+        </div>
       </div>
 
     </div>
 
-    <!-- Bloque Inferior: Sello Expo y Copyright Legal -->
-    <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-[#86868b] font-light">
+    <!-- Bloque Inferior: Cobertura, Términos de Reservación y Créditos -->
+    <div class="pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-[11px] text-[#86868b] font-light">
       
-      <!-- Sello del Evento -->
+      <!-- Sello Oficial Expo 15 -->
       <div class="flex items-center gap-2">
         <span class="w-1.5 h-1.5 rounded-full bg-[#b8860b]"></span>
-        <span>Participante Oficial • <strong>Expo 15 México</strong> (Palacio de los Deportes)</span>
+        <span>Expositor Oficial • <strong>Expo 15 México</strong> (Palacio de los Deportes)</span>
       </div>
 
-      <!-- Copyright y Cobertura -->
-      <div class="flex items-center gap-4">
-        <span>CDMX & Zona Metropolitana</span>
+      <!-- Cobertura y Reserva -->
+      <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+        <span>CDMX • Estado de México • Toda la República</span>
         <span>•</span>
-        <span>© {currentYear} Missanti Events. Todos los derechos reservados.</span>
+        <span>Reserva con 20% y Contrato Digital</span>
+        <span>•</span>
+        <span>© {currentYear} Missanti.Events</span>
       </div>
 
     </div>
