@@ -1,0 +1,404 @@
+---
+// src/components/Services.astro
+import { Image } from 'astro:assets';
+
+// ==========================================
+// 1. IMPORTACIONES MULTIMEDIA (src/assets/images/)
+// ==========================================
+import cabinaCompleta from '../assets/images/Cabina_V_.JPG';
+import cabinaV1 from '../assets/images/Cabina_V_1.JPG';
+import cabina2 from '../assets/images/cabina__2.JPG';
+
+// Videos (2 verticales + 1 horizontal del dron):
+import videoPov from '../assets/images/QUE SE LE NTOJA A LA REYNA_.mp4';
+import videoDron from '../assets/images/Dron.mp4';
+import videoVertical2 from '../assets/images/POV XV SONIDO .mp4';
+
+// ==========================================
+// 2. PAQUETES EDITORIALES (Personalizables)
+// ==========================================
+const packages = [
+  {
+    id: "paquete-digital",
+    tier: "COLECCIÓN 01",
+    title: "Digital Vogue",
+    subtitle: "Para eventos dinámicos que buscan fotos digitales en ultra alta definición listas para compartir en redes.",
+    duration: "2 Horas de Experiencia",
+    highlight: false,
+    badge: null,
+    features: [
+      "Estructura monumental Cabina Vogue (acabado blanco de pasarela)",
+      "Iluminación continua de estudio fotográfico CRI 95+ (suaviza piel en cámara)",
+      "Carátula oficial personalizada con nombres y fecha conmemorativa",
+      "Descarga digital instantánea en 4K vía código QR en vivo",
+      "Galería privada en la nube para descarga de invitados",
+      "Asistente técnico durante toda la sesión"
+    ],
+    buttonText: "Cotizar Digital Vogue",
+    popular: false
+  },
+  {
+    id: "paquete-signature",
+    tier: "COLECCIÓN 02",
+    title: "Signature Vogue",
+    subtitle: "La experiencia completa de pasarela. El montaje más fotografiado y cotizado de Expo 15.",
+    duration: "3 Horas de Experiencia Continua",
+    highlight: true,
+    badge: "MÁS ELEGIDO EN EXPO 15",
+    features: [
+      "Todo lo incluido en la Colección Digital",
+      "Impresiones térmicas profesionales ILIMITADAS en segundos",
+      "Tocador Hollywood con espejo e iluminación perimetral para retoque",
+      "Unifilas VIP con postes dorados y cordón de terciopelo rojo",
+      "Set de accesorios editoriales de alta costura (lentes retro, props chic)",
+      "2 personas de staff dedicadas (operador y director de poses)"
+    ],
+    buttonText: "Apartar Signature Vogue",
+    popular: true
+  },
+  {
+    id: "paquete-couture",
+    tier: "COLECCIÓN 03",
+    title: "Haute Couture VIP",
+    subtitle: "El nivel máximo de gala para quinceañeras y bodas de alta sociedad con recuerdos físicos de colección.",
+    duration: "4 Horas de Experiencia Premium",
+    highlight: false,
+    badge: "EDICIÓN DE GALA",
+    features: [
+      "Todo lo incluido en la Colección Signature",
+      "Álbum de firmas encuadernado de lujo (fotos impresas + dedicatorias)",
+      "Diseño de doble plantilla fotográfica personalizada a juego con el vestido",
+      "Arreglo floral artesanal en cabina coordinado con la temática",
+      "USB conmemorativa de lujo con todo el archivo en calidad máster",
+      "Prioridad de montaje VIP con 3 horas de anticipación garantizadas"
+    ],
+    buttonText: "Cotizar Couture VIP",
+    popular: false
+  }
+];
+
+// ==========================================
+// 3. GALERÍA MULTIMEDIA ASIMÉTRICA BENTO
+// ==========================================
+const galleryItems = [
+  // 1. Video vertical 1 (Ocupa 2 filas)
+  {
+    type: "video" as const,
+    src: videoPov,
+    title: "POV: Cabina Vogue en vivo",
+    badge: "Reel Viral",
+    colSpan: "col-span-1 md:row-span-2"
+  },
+  // 2. Foto montaje completo en jardín
+  {
+    type: "image" as const,
+    src: cabinaCompleta,
+    title: "Montaje Completo en Jardín",
+    subtitle: "Cabina monumental, tocador Hollywood y unifilas doradas",
+    badge: "Setup VIP",
+    colSpan: "col-span-1 md:col-span-2"
+  },
+  // 3. Foto detalle portada personalizada
+  {
+    type: "image" as const,
+    src: cabinaV1,
+    title: "Portada & Tipografía a Medida",
+    subtitle: "Diseño gráfico adaptado a tu evento",
+    badge: "Detalle Exclusivo",
+    colSpan: "col-span-1"
+  },
+  // 4. Foto estructura pasarela
+  {
+    type: "image" as const,
+    src: cabina2,
+    title: "Estructura & Flores de Pasarela",
+    subtitle: "Iluminación perimetral continua de estudio",
+    badge: "Alta Costura",
+    colSpan: "col-span-1"
+  },
+  // 5. Video del Dron Horizontal (16:9 amplio)
+  {
+    type: "video" as const,
+    src: videoDron,
+    title: "Escenografía Aérea & Producción",
+    subtitle: "Cobertura cinematográfica y ambiente de gala",
+    badge: "Toma Aérea con Dron",
+    colSpan: "col-span-1 md:col-span-2"
+  },
+  // 6. Video vertical 2
+  {
+    type: "video" as const,
+    src: videoVertical2,
+    title: "Experiencia Quinceañera",
+    badge: "Mis XV • En Vivo",
+    colSpan: "col-span-1"
+  }
+];
+---
+
+<section id="servicios" class="my-20 sm:my-28 max-w-6xl mx-auto px-4 sm:px-6 scroll-mt-24">
+  
+  <!-- Encabezado de Sección Estilo Apple Keynote -->
+  <div class="text-center space-y-3.5 max-w-2xl mx-auto mb-16 sm:mb-20">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/[0.03] border border-black/[0.06] backdrop-blur-md">
+      <span class="w-1.5 h-1.5 rounded-full bg-[#b8860b] animate-pulse"></span>
+      <span class="text-[10px] uppercase tracking-[0.25em] text-[#86868b] font-medium">
+        Colecciones Exclusivas • Expo 15
+      </span>
+    </div>
+
+    <h2 class="font-['Playfair_Display'] text-3xl sm:text-5xl md:text-[3.25rem] font-normal text-[#1d1d1f] tracking-tight leading-[1.12]">
+      La experiencia ideal para <br />
+      <span class="italic font-normal bg-gradient-to-r from-[#b8860b] via-[#cf9b38] to-[#8a6510] bg-clip-text text-transparent">
+        la noche de tus quince
+      </span>
+    </h2>
+
+    <p class="text-xs sm:text-sm text-[#86868b] font-light leading-relaxed max-w-xl mx-auto">
+      Estructura física monumental, iluminación continua de estudio y fotografías impresas al instante. Elige el paquete perfecto para tu recepción.
+    </p>
+  </div>
+
+  <!-- 3 TARJETAS EDITORIALES DE LUJO (FULL RESPONSIVE) -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6 items-stretch pt-4">
+    {packages.map((pkg) => (
+      <div 
+        class={`group relative rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between transition-all duration-500 ${
+          pkg.highlight 
+            ? "bg-gradient-to-b from-white via-[#fffdf9] to-[#faf6ed] border-2 border-[#b8860b]/45 shadow-[0_25px_60px_-15px_rgba(184,134,11,0.15),0_2px_4px_rgba(0,0,0,0.02)] ring-1 ring-[#b8860b]/20 lg:-translate-y-3 z-10" 
+            : "bg-white/85 backdrop-blur-xl border border-black/[0.08] shadow-[0_15px_40px_-15px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.02)] hover:shadow-[0_25px_50px_-15px_rgba(0,0,0,0.08)] hover:border-black/15"
+        }`}>
+        
+        {/* Badge Flotante Superior (Solo en Signature / Más Elegido) */}
+        {pkg.badge && (
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20">
+            <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#1d1d1f] text-[#dfba73] text-[9px] uppercase tracking-[0.2em] font-medium shadow-md border border-[#dfba73]/30 whitespace-nowrap">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#dfba73] animate-ping"></span>
+              {pkg.badge}
+            </span>
+          </div>
+        )}
+
+        {/* Resplandor decorativo de fondo en el paquete destacado */}
+        {pkg.highlight && (
+          <div class="absolute -top-20 -right-20 w-52 h-52 bg-gradient-to-b from-[#b8860b]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+        )}
+
+        <div class="space-y-6 relative z-10">
+          
+          <!-- Bloque Superior: Tier + Título + Duración + Descripción -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[9.5px] uppercase tracking-[0.3em] font-semibold text-[#86868b]">
+                {pkg.tier}
+              </span>
+              <span class={`w-1.5 h-1.5 rounded-full ${pkg.highlight ? 'bg-[#b8860b]' : 'bg-black/15'}`}></span>
+            </div>
+
+            <h3 class="font-['Playfair_Display'] text-2xl sm:text-[1.75rem] font-normal text-[#1d1d1f] tracking-tight leading-tight">
+              {pkg.title}
+            </h3>
+
+            <!-- Duración en Cápsula Satinada -->
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/[0.03] border border-black/[0.05] text-[#1d1d1f] text-[11px] font-medium tracking-wide">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#b8860b]"></span>
+              <span>{pkg.duration}</span>
+            </div>
+
+            <p class="text-xs text-[#6e6e73] font-light leading-relaxed pt-1">
+              {pkg.subtitle}
+            </p>
+          </div>
+
+          <!-- Separador fino -->
+          <div class="h-px w-full bg-black/[0.06]"></div>
+
+          <!-- Lista de Características / Specs -->
+          <div class="space-y-3.5">
+            <p class="text-[9.5px] uppercase tracking-[0.22em] text-[#1d1d1f] font-semibold">
+              Qué incluye la experiencia:
+            </p>
+            <ul class="text-xs text-[#424245] space-y-2.5 font-light">
+              {pkg.features.map((feat) => (
+                <li class="flex items-start gap-2.5 leading-snug">
+                  <span class="w-4 h-4 rounded-full bg-[#b8860b]/10 text-[#b8860b] flex items-center justify-center shrink-0 mt-0.5">
+                    <svg class="w-2.5 h-2.5 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                  <span>{feat}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Botón Inferior de Llamado a la Acción -->
+        <div class="pt-8 relative z-10 mt-6 border-t border-black/[0.05]">
+          <a 
+            href="#apartar" 
+            class={`w-full py-3.5 px-5 rounded-full text-center text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-300 flex items-center justify-center gap-2 active:scale-95 group ${
+              pkg.highlight 
+                ? "bg-[#1d1d1f] text-white hover:bg-[#323236] shadow-md shadow-black/10" 
+                : "bg-white hover:bg-[#fbfbfd] text-[#1d1d1f] border border-black/[0.1] hover:border-black/25 shadow-sm"
+            }`}>
+            <span>{pkg.buttonText}</span>
+            <span class="transform group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </a>
+        </div>
+
+      </div>
+    ))}
+  </div>
+
+  <!-- SECCIÓN ÁLBUM / EXPERIENCIAS EN VIVO (Bento Grid) -->
+  <div class="mt-28 space-y-10">
+    
+    <div class="text-center space-y-3 max-w-xl mx-auto px-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/[0.03] border border-black/[0.06]">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#b8860b] animate-ping"></span>
+        <span class="text-[10px] uppercase tracking-[0.25em] text-[#86868b] font-medium">
+          Live From Events • Galería Real
+        </span>
+      </div>
+
+      <h3 class="font-['Playfair_Display'] text-3xl sm:text-4xl font-normal text-[#1d1d1f] tracking-tight">
+        Así se vive en <br />
+        <span class="italic font-normal bg-gradient-to-r from-[#b8860b] via-[#cf9b38] to-[#8a6510] bg-clip-text text-transparent">
+          recepciones reales
+        </span>
+      </h3>
+      <p class="text-xs text-[#86868b] font-light leading-relaxed">
+        Sin montajes ficticios. Momentos capturados directamente en jardines, salones y haciendas con nuestros clientes.
+      </p>
+    </div>
+
+    <!-- Grid Asimétrico: 3 Videos Silenciados + 3 Fotos -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      {galleryItems.map((item) => (
+        <div class={`group relative rounded-[1.75rem] overflow-hidden bg-black/[0.02] border border-black/[0.08] shadow-[0_15px_40px_-15px_rgba(0,0,0,0.06)] hover:shadow-2xl transition-all duration-500 ${item.colSpan}`}>
+          
+          {item.type === "video" ? (
+            <div class="relative w-full h-full min-h-[320px] md:min-h-full bg-black overflow-hidden flex items-center justify-center">
+              <video 
+                src={item.src} 
+                autoplay 
+                loop 
+                muted 
+                playsinline 
+                webkit-playsinline
+                preload="auto"
+                class="gallery-video w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out">
+              </video>
+              
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none"></div>
+
+              <div class="absolute top-3.5 left-3.5 z-10 pointer-events-none">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-[8.5px] uppercase tracking-widest text-white font-medium">
+                  <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                  {item.badge}
+                </span>
+              </div>
+
+              <div class="absolute bottom-4 left-4 right-4 z-10 text-white text-left pointer-events-none">
+                <p class="font-['Playfair_Display'] text-base font-medium leading-snug drop-shadow-sm">
+                  {item.title}
+                </p>
+                {item.subtitle ? (
+                  <p class="text-[9px] text-white/80 font-light mt-0.5 drop-shadow-sm">
+                    {item.subtitle}
+                  </p>
+                ) : (
+                  <span class="text-[8.5px] uppercase tracking-widest text-[#dfba73] block mt-0.5">
+                    Missanti Events • En vivo
+                  </span>
+                )}
+              </div>
+            </div>
+          ) : (
+            <div class="relative w-full h-full min-h-[240px] overflow-hidden bg-neutral-100 flex items-center justify-center">
+              <Image 
+                src={item.src} 
+                alt={item.title}
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
+
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none"></div>
+
+              <div class="absolute top-3.5 left-3.5 z-10 pointer-events-none">
+                <span class="px-2.5 py-1 rounded-full bg-white/85 backdrop-blur-md border border-black/[0.06] text-[8.5px] uppercase tracking-widest text-[#1d1d1f] font-medium shadow-sm">
+                  {item.badge}
+                </span>
+              </div>
+
+              <div class="absolute bottom-4 left-4 right-4 z-10 text-white text-left pointer-events-none">
+                <p class="font-['Playfair_Display'] text-sm sm:text-base font-medium leading-snug drop-shadow-sm">
+                  {item.title}
+                </p>
+                {item.subtitle && (
+                  <p class="text-[9px] sm:text-[10px] text-white/80 font-light mt-0.5 drop-shadow-sm">
+                    {item.subtitle}
+                  </p>
+                )}
+              </div>
+            </div>
+          )}
+
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA secundario tras el álbum -->
+    <div class="text-center pt-4">
+      <a 
+        href="#apartar" 
+        class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#1d1d1f] text-white font-medium text-xs uppercase tracking-widest hover:bg-[#323236] transition-all shadow-md active:scale-95">
+        <span>Cotizar Mi Evento con este Montaje</span>
+        <span>&rarr;</span>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Sello de Garantía y Puntualidad en Montaje -->
+  <div class="mt-20 p-7 rounded-3xl bg-[#fbfbfd] border border-black/[0.06] flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left shadow-sm">
+    <div class="space-y-1">
+      <p class="text-xs font-semibold text-[#1d1d1f] tracking-wide">
+        Garantía de Montaje & Puntualidad Missanti
+      </p>
+      <p class="text-[11px] text-[#86868b] font-light max-w-xl">
+        Llegamos con 2 a 3 horas de anticipación a tu jardín o salón para calibrar la iluminación, alinear la tipografía y realizar pruebas de impresión antes de que llegue el primer invitado.
+      </p>
+    </div>
+    <a 
+      href="#apartar" 
+      class="shrink-0 px-6 py-2.5 rounded-full bg-[#1d1d1f] text-white text-[10px] uppercase tracking-widest font-medium hover:bg-[#323236] transition-all">
+      Consultar Disponibilidad
+    </a>
+  </div>
+
+</section>
+
+<!-- Script para garantizar silencio y loop infinito en cualquier móvil -->
+<script>
+  function ensureMutedLoop() {
+    const videoElements = document.querySelectorAll<HTMLVideoElement>('video.gallery-video');
+    videoElements.forEach((video) => {
+      video.muted = true;
+      video.loop = true;
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
+      
+      video.addEventListener('ended', () => {
+        video.currentTime = 0;
+        video.play().catch(() => {});
+      });
+
+      video.play().catch(() => {});
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', ensureMutedLoop);
+  ensureMutedLoop();
+</script>
